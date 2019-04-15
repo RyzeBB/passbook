@@ -1,0 +1,50 @@
+{
+  "data": {
+    "passTemplateInfos": [{
+      "merchants": {
+        "address": "北京",
+        "businessLicenseUrl": "www.imooc.com",
+        "id": 1,
+        "isAudit": true,
+        "logoUrl": "www.imooc.com",
+        "name": "慕课",
+        "phone": "111111"
+      },
+      "passTemplate": {
+        "background": 2,
+        "desc": "详情：慕课",
+        "end": 1555084800000,
+        "hasToken": true,
+        "id": 1,
+        "limit": 10000,
+        "start": 1554220800000,
+        "summary": "简介：慕课",
+        "title": "title:慕课"
+      }
+    }, {
+      "merchants": {
+        "address": "北京",
+        "businessLicenseUrl": "www.imooc.com",
+        "id": 2,
+        "isAudit": true,
+        "logoUrl": "www.imooc.com",
+        "name": "慕课Imooc",
+        "phone": "111111"
+      },
+      "passTemplate": {
+        "background": 2,
+        "desc": "详情：慕课",
+        "end": 1555084800000,
+        "hasToken": true,
+        "id": 2,
+        "limit": 10000,
+        "start": 1554220800000,
+        "summary": "简介：慕课",
+        "title": "title:慕课"
+      }
+    }],
+    "userId": 24643151
+  },
+  "errorCode": 0,
+  "errorMsg": ""
+}
