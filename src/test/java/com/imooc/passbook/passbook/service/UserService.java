@@ -25,7 +25,7 @@ public class UserService {
     public void testCreateUser() throws Exception{
         User user = new User();
         user.setBaseInfo(
-                new User.BaseInfo("imooc-1",12,"w")
+                new User.BaseInfo("imooc-2",12,"w")
         );
         user.setOtherInfo(
                 new User.OtherInfo("1111","银川")
