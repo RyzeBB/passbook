@@ -15,7 +15,7 @@ public class Constants {
     /**
      * token 文件存储目录
      */
-    public static final String TOKEN_DIR = "F:\\zpl\\imooc\\projects\\2019\\token";
+    public static final String TOKEN_DIR = "E:\\gitrepository\\passbook\\token";
 
     /**
      * 已使用的token文件名后缀

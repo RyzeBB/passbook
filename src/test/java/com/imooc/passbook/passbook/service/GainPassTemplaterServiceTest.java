@@ -23,7 +23,7 @@ public class GainPassTemplaterServiceTest extends AbstractServiceTest{
     @Test
     public void testGainPassTemplate() throws Exception{
         PassTemplate target = new PassTemplate();
-        target.setId(1);
+        target.setId(2);
         target.setTitle("title:慕课");
         target.setHasToken(true);
 

@@ -19,7 +19,7 @@ public class RowKeyGenUtil {
      * @return String RowKey
      */
     public static String genPassTemplateRowKey(PassTemplate passTemplate){
-        String passInfo = String.valueOf(passTemplate.getId()) + "_" + passTemplate.getTitle();
+        String passInfo = passTemplate.getId() + "_" + passTemplate.getTitle();
         String rowKey = DigestUtils.md5Hex(passInfo);
         log.info("GenPassTemplateRowKey: {} {}",passInfo,rowKey);
         return rowKey;
@@ -46,4 +46,7 @@ public class RowKeyGenUtil {
     }
 
 
+    public static void main(String[] args) {
+        System.out.printf(DigestUtils.md5Hex("1"));
+    }
 }

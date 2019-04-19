@@ -57,6 +57,7 @@ public class GainPassTemplateServiceImpl implements IGainPassTemplateService {
     @Override
     public Response gainPassTemplate(GainPassTemplateRequest request) throws Exception {
         PassTemplate passTemplate;
+        //--> passtemplaterowkey
         String passTemplateId = RowKeyGenUtil.genPassTemplateRowKey(request.getPassTemplate());
         try{
             passTemplate = hbaseTemplate.get(Constants.PassTemplateTable.TABLE_NAME,passTemplateId,new PassTemplateRowMapper());

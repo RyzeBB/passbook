@@ -1,5 +1,6 @@
 package com.imooc.passbook.passbook.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.imooc.passbook.passbook.constant.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,8 +51,9 @@ public class TokenUploadController {
     public String uploadStatus(){
         return "uploadStatus";
     }
-    @RequestMapping("/token")
-    public String tokenFileUpload(@RequestParam("merchantsId") String merchantsId, @RequestParam("passTemplateId") String passTemplateId, @RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
+    @PostMapping("/token")
+    public String tokenFileUpload(@RequestParam("merchantsId") String merchantsId, @RequestParam("passTemplateId") String passTemplateId, MultipartFile file, RedirectAttributes redirectAttributes){
+        log.info("TokenFileUpload {}" + JSON.toJSONString(merchantsId + passTemplateId ) + "file");
         if(null == passTemplateId || file.isEmpty()){
             redirectAttributes.addFlashAttribute("message","passTemplate is null || file is Empty");
             return "redirect:/uploadStatus";
@@ -58,7 +62,7 @@ public class TokenUploadController {
         try{
             File cur = new File(Constants.TOKEN_DIR +File.separator+merchantsId);
             if(!cur.exists()){
-                log.info("Create File :{}"+cur.mkdir());
+                log.info("Create File :{}"+cur.mkdirs());
             }
             Path path = Paths.get(Constants.TOKEN_DIR, merchantsId, passTemplateId);
             Files.write(path, file.getBytes());
@@ -100,4 +104,6 @@ public class TokenUploadController {
         }
         return false;
     }
+
+
 }

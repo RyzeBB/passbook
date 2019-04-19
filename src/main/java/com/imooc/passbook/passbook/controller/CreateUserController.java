@@ -7,10 +7,7 @@ import com.imooc.passbook.passbook.vo.Response;
 import com.imooc.passbook.passbook.vo.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,7 +17,8 @@ import javax.servlet.http.HttpServletRequest;
  * @Date 2019/3/28 20:56
  **/
 @Slf4j
-@RestController("/passbook")
+@RestController
+@RequestMapping("/passbook")
 public class CreateUserController {
     /**
      * 创建用户服务
@@ -43,10 +41,10 @@ public class CreateUserController {
      * @return {@link Response}
      * @throws Exception
      */
-    @ResponseBody
-    @RequestMapping("/createuser")
-    Response createUser(@RequestBody User user) throws Exception{
+    @PostMapping("/createuser")
+    public Response createUser(@RequestBody User user) throws Exception{
         LogGenerator.genLog(httpServletRequest,-1L, LogConstants.ActionName.CREATE_USER,user);
-        return iUserService.createUser(user);
+       iUserService.createUser(user);
+        return null;
     }
 }

@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
         ErrorInfo<String> info = new ErrorInfo <>();
         info.setCode(ErrorInfo.ERROR);
         info.setMessage(ex.getMessage());
-        info.setData("Do Not Have Return Data");
+        info.setData("Error Data Return");
         info.setUrl(request.getRequestURL().toString());
         return info;
     }
