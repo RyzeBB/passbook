@@ -43,7 +43,7 @@ public class InventoryServiceImpl implements IInventoryService {
     }
 
     /**
-     * 获取库存信息
+     * 获取库存信息，排除已领取后剩余可领取的
      *
      * @param userId 用户id
      * @return {@link Response}
@@ -52,6 +52,7 @@ public class InventoryServiceImpl implements IInventoryService {
     @Override
     @SuppressWarnings("unchecked")
     public Response getInventoryInfo(Long userId) throws Exception {
+        //用户已领取的所有优惠券,包含pass领取信息
         Response allUserPass = userPassService.getUserAllPassInfo(userId);
         List<PassInfo> passInfos = (List<PassInfo>)allUserPass.getData();
         List <PassTemplate> excludeObject = passInfos.stream().map(
@@ -65,8 +66,8 @@ public class InventoryServiceImpl implements IInventoryService {
     }
 
     /**
-     * 获取系统中可用的优惠券
-     * @param excludeIds 需要排除的优惠券 ids
+     * 获取系统中可用的优惠券，排除用户已领取的优惠券
+     * @param excludeIds 需要排除的优惠券
      * @return {@link PassTemplate}
      */
     private List<PassTemplate> getAvailablePassTemplate(List<String> excludeIds){

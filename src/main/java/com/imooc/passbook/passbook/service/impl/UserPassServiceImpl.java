@@ -100,7 +100,7 @@ public class UserPassServiceImpl implements IUserPassService {
         filterList.add(new PrefixFilter(rowPrefix));
         filterList.add(new SingleColumnValueFilter(
                 Constants.PassTable.FAMILY_I.getBytes(),
-                Constants.PassTable.CON_DATE.getBytes(),
+                Constants.PassTable.TEMPLATE_ID.getBytes(),
                 CompareFilter.CompareOp.EQUAL,
                 Bytes.toBytes(pass.getTemplateId())
         ));
@@ -129,7 +129,7 @@ public class UserPassServiceImpl implements IUserPassService {
     }
 
     /**
-     * 根据优惠券状态获取优惠券信息
+     * 根据优惠券状态查询用户已领取的优惠券 unused,used,all
      * @param userId 用户id
      * @param passStatus {@link PassStatus}
      * @return {@link Response}

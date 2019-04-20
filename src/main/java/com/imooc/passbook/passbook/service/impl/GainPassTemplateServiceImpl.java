@@ -59,6 +59,7 @@ public class GainPassTemplateServiceImpl implements IGainPassTemplateService {
         PassTemplate passTemplate;
         //--> passtemplaterowkey
         String passTemplateId = RowKeyGenUtil.genPassTemplateRowKey(request.getPassTemplate());
+       /* 优惠券有效性判断*/
         try{
             passTemplate = hbaseTemplate.get(Constants.PassTemplateTable.TABLE_NAME,passTemplateId,new PassTemplateRowMapper());
         }catch (Exception ex){
@@ -74,6 +75,7 @@ public class GainPassTemplateServiceImpl implements IGainPassTemplateService {
             log.error("PassTemplate validTime Error:{}",JSON.toJSONString(request.getPassTemplate()));
             return Response.failure("PassTemplate ValidTime Error");
         }
+        /* 不需要判断是否已领取,用户可访问的都是未领取的*/
 
         if(passTemplate.getLimit() != -1){
             List<Mutation> datas = new ArrayList <>();

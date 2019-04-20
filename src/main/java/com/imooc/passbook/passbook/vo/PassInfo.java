@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class PassInfo {
 
     /**
-     * 优惠券
+     * 优惠券-用户  关系
      */
     private Pass pass;
     /**

@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * 用户获取优惠券服务测试
+ * 用户领取优惠券服务测试
  * @Author liforever
  * @Date 2019/4/3 21:28
  **/

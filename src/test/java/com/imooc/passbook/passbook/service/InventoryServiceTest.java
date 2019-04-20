@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * 库存服务测试
+ * 库存服务测试   用户可以领取的优惠券
  * @Author liforever
  * @Date 2019/4/3 20:46
  **/

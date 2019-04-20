@@ -1,0 +1,79 @@
+数据库设计：
+    user
+    passtemplate    merchants,passtemplate关系表
+    pass     user,passtemplate 关系表
+    feedback    user,passtemplate,feedback 关系表
+
+
+
+用户子系统：
+    模块设计：
+        常量 ：
+
+               系统常量：
+
+               kafka-topic,redis-user-count,used-token-file-suffix,upload-token-dir,
+
+               >>四个基本表常量
+               user-table-constants,
+               passtemplate-table-constants,
+               pass-table-constants,
+               feedback-table-constants
+
+               >>评论类型常量
+
+               >>优惠券使用状态常量
+
+         entity: merchants
+
+         dao: MerchantsDao
+
+
+         异常：advice 全局异常处理
+
+         hbase-->mapper
+
+         vo:
+            user
+            passtemplate
+            feedback
+
+            pass --> 用户与优惠券的领取关系
+
+            passtemplateinfo --> passtemplate + merchants 优惠券模板信息对象
+
+            passinfo --> pass + passtemplate + merchants 优惠券模板信息使用情况对象
+
+            feedback --> 评论对象
+
+            errorinfo
+            response
+
+            gainpasstemplaterequest 用户 获取优惠券 请求对象
+
+            inventoryresponse 用户 库存 响应对象
+
+
+         log:
+            logConstants
+            logGenerator
+            LogObject
+
+         util: rowkeygenutil
+
+
+
+    service:
+        ConsumePassTemplate
+
+        评论服务
+
+        获取优惠券服务
+        投放优惠券服务
+
+        库存服务
+        优惠券服务
+
+
+
+

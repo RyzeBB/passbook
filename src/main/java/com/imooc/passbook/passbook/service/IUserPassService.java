@@ -4,7 +4,7 @@ import com.imooc.passbook.passbook.vo.Pass;
 import com.imooc.passbook.passbook.vo.Response;
 
 /**
- * 获取用户个人优惠券信息
+ * 获取用户个人优惠券信息，包含all,unused,used 三种状态。  unused 不等用于库存信息
  * @Author liforever
  * @Date 2019/3/27 15:20
  **/
